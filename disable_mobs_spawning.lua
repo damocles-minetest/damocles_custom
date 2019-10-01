@@ -7,8 +7,7 @@ end
 
 minetest.register_on_mods_loaded(function()
   for _, abm in ipairs(minetest.registered_abms) do
-
-    if abm.name and ends_with(abm.name, " spawning") then
+    if abm.label and ends_with(abm.label, " spawning") then
       abm.action = function() end
     end
   end
