@@ -1,5 +1,10 @@
 
 local MP = minetest.get_modpath("damocles_custom")
 
+minetest.override_item("default:ice", {
+	groups = {cracky = 3, cools_lava = 1, slippery = 10}
+})
+
+
 dofile(MP.."/disable_mobs_spawning.lua")
 dofile(MP.."/moreblocks.lua")
