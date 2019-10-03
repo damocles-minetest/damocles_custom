@@ -15,3 +15,11 @@ end
 if minetest.get_modpath("travelnet") then
 	dofile(MP.."/travelnet.lua")
 end
+
+
+if minetest.settings:get_bool("enable_integration_test") then
+	dofile(MP.."/integration_test.lua")
+end
+
+dofile(MP.."/stats.lua")
+
