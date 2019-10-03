@@ -10,6 +10,10 @@ read_globals = {
 
 	-- Minetest
 	"vector", "ItemStack",
-	"dump"
+	"dump",
+
+	-- deps
+	"default",
+	"stairsplus"
 
 }
