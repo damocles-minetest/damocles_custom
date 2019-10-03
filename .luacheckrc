@@ -1,6 +1,7 @@
 
 globals = {
-	"minetest"
+	"minetest",
+	"travelnet"
 }
 
 read_globals = {
@@ -15,5 +16,4 @@ read_globals = {
 	-- deps
 	"default",
 	"stairsplus"
-
 }

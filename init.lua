@@ -7,4 +7,11 @@ minetest.override_item("default:ice", {
 
 
 dofile(MP.."/disable_mobs_spawning.lua")
-dofile(MP.."/moreblocks.lua")
+
+if minetest.get_modpath("moreblocks") then
+	dofile(MP.."/moreblocks.lua")
+end
+
+if minetest.get_modpath("travelnet") then
+	dofile(MP.."/travelnet.lua")
+end
