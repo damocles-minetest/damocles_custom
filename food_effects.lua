@@ -1,26 +1,28 @@
 
-local monoid_id = "food_effect"
+-- playername -> timeout
+local data = {}
 
-local function add_effect(player, monoid, value, seconds)
-	monoid:add_change(player, value, monoid_id)
-	local playername = player:get_player_name()
-	minetest.after(seconds, function()
-		player = minetest.get_player_by_name(playername)
-		if player then
-			monoid:del_change(player, monoid_id)
+minetest.register_globalstep(function(dtime)
+	for playername in pairs(data) do
+		local time = data[playername]
+		time = time - dtime
+
+		if time < 0 then
+			time = nil
+			local player = minetest.get_player_by_name(playername)
+			if player then
+				player_monoids.speed:del_change(player, "damocles:coffee")
+			end
 		end
-	end)
-end
+		data[playername] = time
+	end
+end)
+
 
 minetest.register_on_item_eat(function(_, _, itemstack, player)
 	local name = itemstack:get_name()
 	if name == "farming:coffee_cup_hot" then
-		add_effect(player, player_monoids.speed, 2, 5)
-	elseif name == "farming:jaffa_cake" then
-		add_effect(player, player_monoids.jump, 2, 5)
-	elseif name == "farming:turkish_delight" then
-		local box = {x=0.3, y=0.3, z=0.3}
-		add_effect(player, player_monoids.collisionbox, box, 10)
-		add_effect(player, player_monoids.visual_size, box, 10)
+		player_monoids.speed:add_change(player, 2, "damocles:coffee")
+		data[player:get_player_name()] = 5
 	end
 end)
