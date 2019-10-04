@@ -1,28 +1,39 @@
 
--- playername -> timeout
-local data = {}
 
-minetest.register_globalstep(function(dtime)
-	for playername in pairs(data) do
-		local time = data[playername]
-		time = time - dtime
+local function register_food_effect(foodname, monoid, id, value, seconds)
 
-		if time < 0 then
-			time = nil
-			local player = minetest.get_player_by_name(playername)
-			if player then
-				player_monoids.speed:del_change(player, "damocles:coffee")
+	-- playername -> timeout
+	local data = {}
+
+	minetest.register_globalstep(function(dtime)
+		for playername in pairs(data) do
+			local time = data[playername]
+			time = time - dtime
+
+			if time < 0 then
+				time = nil
+				local player = minetest.get_player_by_name(playername)
+				if player then
+					monoid:del_change(player, foodname)
+				end
 			end
+			data[playername] = time
 		end
-		data[playername] = time
-	end
-end)
+	end)
 
 
-minetest.register_on_item_eat(function(_, _, itemstack, player)
-	local name = itemstack:get_name()
-	if name == "farming:coffee_cup_hot" then
-		player_monoids.speed:add_change(player, 2, "damocles:coffee")
-		data[player:get_player_name()] = 5
-	end
-end)
+	minetest.register_on_item_eat(function(_, _, itemstack, player)
+		local name = itemstack:get_name()
+		if name == foodname then
+			monoid:add_change(player, value, foodname)
+			data[player:get_player_name()] = seconds
+		end
+	end)
+end
+
+
+
+register_food_effect("farming:coffee_cup_hot", player_monoids.speed, 2, 5)
+register_food_effect("farming:jaffa_cake", player_monoids.jump, 2, 5)
+register_food_effect("farming:turkish_delight", player_monoids.visual_size, {x=0.3, y=0.3, z=0.3}, 5)
+
