@@ -1,6 +1,6 @@
 
 
-local function register_food_effect(foodname, monoid, id, value, seconds)
+local function register_food_effect(foodname, monoid, value, seconds)
 
 	-- playername -> timeout
 	local data = {}
