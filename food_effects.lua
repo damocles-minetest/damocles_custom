@@ -18,5 +18,9 @@ minetest.register_on_item_eat(function(_, _, itemstack, player)
 		add_effect(player, player_monoids.speed, 2, 5)
 	elseif name == "farming:jaffa_cake" then
 		add_effect(player, player_monoids.jump, 2, 5)
+	elseif name == "farming:turkish_delight" then
+		local box = {x=0.3, y=0.3, z=0.3}
+		add_effect(player, player_monoids.collisionbox, box, 10)
+		add_effect(player, player_monoids.visual_size, box, 10)
 	end
 end)
