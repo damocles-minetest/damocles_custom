@@ -16,6 +16,10 @@ if minetest.get_modpath("travelnet") then
 	dofile(MP.."/travelnet.lua")
 end
 
+if minetest.get_modpath("farming") and minetest.get_modpath("player_monoids") then
+	dofile(MP.."/food_effects.lua")
+end
+
 
 if minetest.settings:get_bool("enable_integration_test") then
 	dofile(MP.."/integration_test.lua")

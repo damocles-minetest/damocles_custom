@@ -15,5 +15,6 @@ read_globals = {
 
 	-- deps
 	"default",
-	"stairsplus"
+	"stairsplus",
+	"player_monoids"
 }
