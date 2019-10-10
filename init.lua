@@ -6,6 +6,8 @@ minetest.override_item("default:ice", {
 })
 
 dofile(MP.."/disable_mobs_spawning.lua")
+dofile(MP.."/center.lua")
+
 
 if minetest.get_modpath("moreblocks") then
 	dofile(MP.."/moreblocks.lua")
