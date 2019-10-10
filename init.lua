@@ -8,6 +8,7 @@ minetest.override_item("default:ice", {
 dofile(MP.."/disable_mobs_spawning.lua")
 dofile(MP.."/center.lua")
 dofile(MP.."/privs.lua")
+dofile(MP.."/teleport_back.lua")
 
 
 
