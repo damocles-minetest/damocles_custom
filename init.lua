@@ -9,7 +9,7 @@ dofile(MP.."/disable_mobs_spawning.lua")
 dofile(MP.."/center.lua")
 dofile(MP.."/privs.lua")
 dofile(MP.."/teleport_back.lua")
-
+dofile(MP.."/node_here.lua")
 
 
 if minetest.get_modpath("moreblocks") then
