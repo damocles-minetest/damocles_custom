@@ -1,12 +1,17 @@
 
+local has_epic = minetest.get_modpath("epic")
+
+
 local function teleport_to_spawn(name)
-    local player = minetest.get_player_by_name(name)
-    if player == nil then
-        -- just a check to prevent the server crashing
-        return false
-    end
-    player:setpos({ x=0, y=0, z=0 })
-    minetest.chat_send_player(name, "Teleported to center!")
+	if has_epic and epic.get_state(name) then
+		-- no teleporting while on a quest
+		minetest.chat_send_player(name, "i'm sorry i can't do that dave")
+		return
+	end
+
+	local player = minetest.get_player_by_name(name)
+	player:setpos({ x=0, y=0, z=0 })
+	minetest.chat_send_player(name, "Teleported to center!")
 end
 
 minetest.register_chatcommand("center", {
