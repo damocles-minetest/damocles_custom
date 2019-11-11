@@ -5,7 +5,6 @@ minetest.override_item("default:ice", {
 	groups = {cracky = 3, cools_lava = 1, slippery = 10}
 })
 
-dofile(MP.."/disable_mobs_spawning.lua")
 dofile(MP.."/center.lua")
 dofile(MP.."/privs.lua")
 dofile(MP.."/teleport_back.lua")
