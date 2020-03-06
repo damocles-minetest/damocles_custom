@@ -1,15 +1,10 @@
 
 local MP = minetest.get_modpath("damocles_custom")
 
-minetest.override_item("default:ice", {
-	groups = {cracky = 3, cools_lava = 1, slippery = 10}
-})
-
 dofile(MP.."/center.lua")
 dofile(MP.."/privs.lua")
 dofile(MP.."/teleport_back.lua")
 dofile(MP.."/node_here.lua")
-
 
 if minetest.get_modpath("unified_inventory") and minetest.get_modpath("sfinv") then
 	dofile(MP.."/inventory.lua")
