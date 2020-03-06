@@ -18,5 +18,6 @@ read_globals = {
 	"stairsplus",
 	"player_monoids",
 	"epic",
-	"player_monoids"
+	"player_monoids",
+	"sfinv"
 }

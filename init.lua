@@ -11,6 +11,10 @@ dofile(MP.."/teleport_back.lua")
 dofile(MP.."/node_here.lua")
 
 
+if minetest.get_modpath("unified_inventory") and minetest.get_modpath("sfinv") then
+	dofile(MP.."/inventory.lua")
+end
+
 if minetest.get_modpath("moreblocks") then
 	dofile(MP.."/moreblocks.lua")
 end
