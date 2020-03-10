@@ -10,10 +10,6 @@ if minetest.get_modpath("unified_inventory") and minetest.get_modpath("sfinv") t
 	dofile(MP.."/inventory.lua")
 end
 
-if minetest.get_modpath("moreblocks") then
-	dofile(MP.."/moreblocks.lua")
-end
-
 if minetest.get_modpath("travelnet") then
 	dofile(MP.."/travelnet.lua")
 end
