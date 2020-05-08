@@ -14,10 +14,6 @@ if minetest.get_modpath("travelnet") then
 	dofile(MP.."/travelnet.lua")
 end
 
-if minetest.get_modpath("epic_skybox") then
-	dofile(MP.."/skybox.lua")
-end
-
 if minetest.get_modpath("player_monoids") then
 	dofile(MP.."/center_fast_walk.lua")
 end
