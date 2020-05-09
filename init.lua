@@ -19,6 +19,10 @@ if minetest.get_modpath("player_monoids") then
 	dofile(MP.."/center_fast_walk.lua")
 end
 
+if minetest.get_modpath("soundblock") then
+	dofile(MP.."/sounds.lua")
+end
+
 if minetest.settings:get_bool("enable_integration_test") then
 	dofile(MP.."/integration_test.lua")
 end

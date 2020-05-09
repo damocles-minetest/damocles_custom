@@ -19,5 +19,6 @@ read_globals = {
 	"player_monoids",
 	"epic",
 	"player_monoids",
-	"sfinv"
+	"sfinv",
+	"soundblock"
 }
